@@ -18,8 +18,26 @@ class User_Controller extends CI_Controller {
     $this->user_model->create_users([
 		'userName' => $username,
 		'firstName' => $fname,
-		'lastName' => $lname]);
+		'lastName' => $lname
+		]);
 
 	}
 
+
+		//function to do all updates
+		public function update($username,$fname,$lname){
+			$id = 17;
+			$this->user_model->update_users([
+				'userName' => $username,
+				'firstName' => $fname,
+				'lastName' => $lname
+			],$id);
+		
+			}
+		//function to do all deletes
+		public function delete(){
+			$id = 17;
+			$this->user_model->delete_users($id);
+		
+			}
 }
