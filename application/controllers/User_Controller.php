@@ -3,6 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_Controller extends CI_Controller {
 
+//view login page
+
+public function login(){
+   $this->load->view('login');
+
+}
+
+
 	public function show($user_id,$user_name)
 	{
 		// $this->load->model('user_model');		//manual way of loading model
@@ -25,8 +33,7 @@ class User_Controller extends CI_Controller {
 
 
 		//function to do all updates
-		public function update($username,$fname,$lname){
-			$id = 17;
+		public function update($id,$username,$fname,$lname){
 			$this->user_model->update_users([
 				'userName' => $username,
 				'firstName' => $fname,
