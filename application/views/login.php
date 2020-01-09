@@ -9,11 +9,16 @@ $attributes = array(
     'id' => 'login_form',
     'class' => 'needs-validation'
 );
-echo form_open('login',$attributes);?>
+
+if():
+
+
+endif;    
+echo form_open('Admin_Controller/login',$attributes);?>
 
 <div class="form-group">
-    <label for="email">Email address:</label>
     <?php 
+    echo form_label('Email: ');
     $data_password = array(
 'type' => 'email',
 'class' => 'form-control',
@@ -24,8 +29,9 @@ echo form_open('login',$attributes);?>
 echo form_password($data_password); ?>
   </div>
   <div class="form-group">
-    <label for="pwd">Password:</label>
     <?php 
+    echo form_label('Password: ');
+
     $data_password = array(
 'type' => 'password',
 'class' => 'form-control',
@@ -40,6 +46,27 @@ echo form_password($data_password); ?>
       <input class="form-check-input" type="checkbox"> Remember me
     </label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <?php echo form_close();?>
+  <!-- //create reset button -->
+  <?php
+  $data_reset = array(
+'type' => 'reset',
+'class' => 'btn btn-warning',
+'name' => 'reset',
+'id' => 'reset',
+'value' => 'Reset'
+);
+
+ echo form_reset($data_reset); ?>
+
+<!-- //create submit button -->
+<?php
+  $data_submit = array(
+    'type' => 'submit',
+    'class' => 'btn btn-success',
+    'name' => 'submit',
+    'id' => 'submit',
+    'value' => 'Login'
+    );
+echo form_submit($data_submit); 
+ echo form_close();?>
 
