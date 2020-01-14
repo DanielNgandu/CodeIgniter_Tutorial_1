@@ -9,24 +9,25 @@ $attributes = array(
     'id' => 'login_form',
     'class' => 'needs-validation'
 );
-
-if():
+// echo validation_errors();
+if($this->session->flashdata('errors')):
+echo $this->session->flashdata('errors');
 
 
 endif;    
-echo form_open('Admin_Controller/login',$attributes);?>
+echo form_open('User_Controller/login',$attributes);?>
 
 <div class="form-group">
     <?php 
     echo form_label('Email: ');
-    $data_password = array(
+    $data_email = array(
 'type' => 'email',
 'class' => 'form-control',
 'name' => 'email',
 'id' => 'email',
 'placeholder' => 'Please Enter Email'
 );
-echo form_password($data_password); ?>
+echo form_input($data_email); ?>
   </div>
   <div class="form-group">
     <?php 
@@ -40,6 +41,19 @@ echo form_password($data_password); ?>
 'placeholder' => 'Please Enter Password'
 );
 echo form_password($data_password); ?>
+ </div>
+ <div class="form-group">
+    <?php 
+    echo form_label('Password: ');
+
+    $data_Cpassword = array(
+'type' => 'password',
+'class' => 'form-control',
+'name' => 'confirm_password',
+'id' => 'Cpassword_id',
+'placeholder' => 'Please Confirm Password'
+);
+echo form_password($data_Cpassword); ?>
  </div>
   <div class="form-group form-check">
     <label class="form-check-label">

@@ -2,6 +2,23 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model{
+// login
+public function login_user($email,$password){
+    $this->db->where([
+        'email' => $email,
+        'password' => $password
+        ]);
+    $query = $this->db->get('users');
+    if($query->num_rows() == 1){
+
+        return $query->row(0)->userId;
+
+    }else{
+       return false;
+    }
+
+}
+
 
 // Read
     public function get_users($array){
