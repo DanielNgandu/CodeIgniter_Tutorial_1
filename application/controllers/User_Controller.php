@@ -36,7 +36,7 @@ public function register(){
 			$email = $this->input->post('email');
 			$fname = $this->input->post('fname');
 			$lname = $this->input->post('lname');
-			$password = $this->input->post('password');
+			$password = password_hash($this->input->post('password'),PASSWORD_DEFAULT);
 
 //set up array
 //Setting values for tabel columns
@@ -107,6 +107,7 @@ public function login()
 			$user_id = $this->user_model->login_user($email,$password);
 
 			if ($user_id){
+				
             $user_data = array(
 			 'user_id' => $user_id,
 			 'email' => $email,

@@ -5,15 +5,17 @@ class User_model extends CI_Model{
 // login
 public function login_user($email,$password){
     $this->db->where([
-        'email' => $email,
-        'password' => $password
+        'email' => $email
         ]);
+
+
     $query = $this->db->get('users');
-    if($query->num_rows() == 1){
 
-        return $query->row(0)->userId;
-
-    }else{
+    $db_password = $query->row(5)->password;
+    if (password_verify($password,$db_password)){
+            return $query->row(0)->userId;
+    }
+   else{
        return false;
     }
 
