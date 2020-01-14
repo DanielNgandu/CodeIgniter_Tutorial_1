@@ -10,6 +10,68 @@ public function index()
 	$this->load->view('layouts/main',$data);
 
 }
+
+public function register(){
+	// //set rules
+	$this->form_validation->set_rules('username','Username','trim|required|min_length[3]');
+	$this->form_validation->set_rules('email','Email','trim|required|min_length[3]');
+	$this->form_validation->set_rules('fname','FirstName','trim|required|min_length[3]');
+	$this->form_validation->set_rules('lname','LastName','trim|required|min_length[3]');
+	$this->form_validation->set_rules('password','Password','trim|required|min_length[3]');
+	$this->form_validation->set_rules('confirm_password','Confirm Password','trim|required|min_length[3]|matches[password]');
+
+	// //check if validations were false
+	if ($this->form_validation->run() == FALSE){
+		$data = array(
+		'errors' => validation_errors()
+		);
+		// $this->session->set_userdata($data);
+		//flash session
+		$this->session->set_flashdata($data);
+		$data['main_view'] = "register";
+	    $this->load->view('layouts/main',$data);
+
+	}else{
+            $username = $this->input->post('username');
+			$email = $this->input->post('email');
+			$fname = $this->input->post('fname');
+			$lname = $this->input->post('lname');
+			$password = $this->input->post('password');
+
+//set up array
+//Setting values for tabel columns
+$data = array(	'userName' => $username,
+				'email' => $email,
+				'firstName' => $fname,
+				'lastName' => $lname,
+				'password' => $password
+				);
+
+			$result = $this->user_model->register_user($data);
+			if ($result){
+            $user_data = array(
+			 'email' => $email,
+			 'logged_in' => true
+
+			);
+			$this->session->set_userdata($user_data);
+			$this->session->set_flashdata('login_success','You are now registered successfully!');
+			//load view
+		$this->load->view('admin_home',$user_data);
+			}else{
+				$this->session->set_flashdata('login_failed','Registeration Failed!');
+
+			// redirect('User_Controller/');
+			$data['main_view'] = "admin_home";
+			$this->load->view('layouts/main',$data);
+
+			}
+
+
+	}
+	
+}
+
 public function login()
 {
 	// $data['main_view'] = "login";

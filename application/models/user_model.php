@@ -20,6 +20,21 @@ public function login_user($email,$password){
 }
 
 
+
+// register user
+public function register_user($array){
+
+    $query = $this->db->insert('users',$array);
+
+    if($this->db->affected_rows() != 1){
+        return false;
+    }else{
+        return  true;
+    }
+
+
+}
+
 // Read
     public function get_users($array){
         //easier way using autoload
