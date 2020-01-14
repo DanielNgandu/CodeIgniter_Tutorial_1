@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <ul class="nav navbar-nav navbar-right">
       <?php if($this->session->userdata('logged_in')){
 ?>
-        <li><a href="<?= site_url();?>/user_controller/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="<?= site_url();?>user_controller/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       <?php }else{?>
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       <?php }?>
