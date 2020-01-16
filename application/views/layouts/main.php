@@ -14,11 +14,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 <div class="container">
-
-<div class = "col-lg-12">
-<?php
-//  $this->load->view($admin_view); ?>
-</div>
 <div class = "col-lg-12">
 <br>
 <?php
@@ -27,6 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <br>
 <div class="jumbotron text-center" style="margin-bottom:10">
   <p>Footer</p>
+</div>
 </div>
 </div>
 </body>

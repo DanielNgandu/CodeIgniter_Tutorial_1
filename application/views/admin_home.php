@@ -87,6 +87,7 @@ if($this->session->flashdata('login_failed')):
     ?>
 
 </p>
+<a href="<?= site_url();?>project_controller/"><button class = 'btn btn-lg btn-info'>View Projects</button></a>
 </div>
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
