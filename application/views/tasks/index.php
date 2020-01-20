@@ -1,5 +1,5 @@
 <div class ="jumbotron text-center" style="margin-bottom:0">
-<h1>View Task Details</h1>
+<h1>View Tasks</h1>
 </div>
 <br><br>
 <div  class="container text-center">
@@ -25,13 +25,14 @@ if($this->session->flashdata('no_access')):
 
 </p>
 </div>
-<h2>Task Details</h2>
+<h2>All Tasks</h2>
   <table class="table">
     <thead>
       <tr>
         <th>ID</th>
-        <th>Project Name</th>
-        <th>Project Desc.</th>
+        <th>Task Name</th>
+        <th>Task Desc.</th>
+        <th>Task Progress</th>
         <th>Date Created</th>
         <th>Action</th>
 
@@ -41,12 +42,16 @@ if($this->session->flashdata('no_access')):
 
       
       <?php 
-     foreach ($projects as $projects){
-    echo "<tr><td>".$projects->id."</td>";
-    echo "<td>".$projects->project_name."</td>";
-    echo "<td>".$projects->project_body."</td>";
-    echo "<td>".$projects->date_created."</td>";
-    echo "<td><input a href = '<?= site_url();?>Project_Controller/task' type ='button' class='btn btn-large btn-success' value = 'View Tasks'></td></tr>";
+     foreach ($tasks as $task){
+    echo "<tr><td>".$task->id."</td>";
+    echo "<td>".$task->task_name."</td>";
+    echo "<td>".$task->task_desc."</td>";
+    echo "<td>".$task->task_progress."</td>";
+    echo "<td>".$task->date_created."</td>";
+    ?>
+    <td><a href ="<?= site_url();?>task_controller/edit/<?php echo $task->id; ?>" class= "btn btn-sm btn-info" data-toggle="modal" data-target="#myModal">Edit</a> | <a href ="<?= site_url();?>task_controller/delete/<?php echo $task->id; ?>" class= "btn btn-sm btn-danger">Delete</a></td>
+    <?php
+    echo "</tr>";
 
     }
     ?>
