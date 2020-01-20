@@ -35,12 +35,12 @@ public function index()
 
 }
 
-public function display_task()
-{
-    // $data['projects'] = $this->project_model->get_all_projects();
-	$data['main_view'] = "projects/display_task";
-	$this->load->view('layouts/main',$data);
+// public function task()
+// {
+//     $data['projects'] = $this->project_model->get_all_projects();
+// 	$data['main_view'] = "tasks/display_task";
+// 	$this->load->view('layouts/main',$data);
 
-}
+// }
 
 }

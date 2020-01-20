@@ -12,4 +12,13 @@ class project_model extends CI_Model{
         return $query->result();
     }
 
+    //get project tasks
+    // Read
+    // public function get_project_tasks($id){
+    //     //easier way using autoload
+
+    //     $query = $this->db->get('projects');
+    //     return $query->result();
+    // }
+
 }

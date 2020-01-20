@@ -1,5 +1,5 @@
 <div class ="jumbotron text-center" style="margin-bottom:0">
-<h1>View Projects</h1>
+<h1>View Project Details</h1>
 </div>
 <br><br>
 <div  class="container text-center">
@@ -25,7 +25,7 @@ if($this->session->flashdata('no_access')):
 
 </p>
 </div>
-<h2>All Projects</h2>
+<h2>Project Details</h2>
   <table class="table">
     <thead>
       <tr>
@@ -33,6 +33,7 @@ if($this->session->flashdata('no_access')):
         <th>Project Name</th>
         <th>Project Desc.</th>
         <th>Date Created</th>
+        <th>Action</th>
 
       </tr>
     </thead>
@@ -44,8 +45,13 @@ if($this->session->flashdata('no_access')):
     echo "<tr><td>".$projects->id."</td>";
     echo "<td>".$projects->project_name."</td>";
     echo "<td>".$projects->project_body."</td>";
-    echo "<td>".$projects->date_created."</td></tr>";
+    echo "<td>".$projects->date_created."</td>";
+?>
+  <td><a href ='<?= site_url();?>task_controller/tasks/<?php echo $projects->id; ?>'><button class='btn btn-large btn-success'>View Tasks</button></a></td>
 
+
+<?php
+echo "</tr>";
     }
     ?>
       
