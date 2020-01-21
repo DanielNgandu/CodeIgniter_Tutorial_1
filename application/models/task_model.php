@@ -4,10 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class task_model extends CI_Model{
 
 
-// Create
-public function create($array){
-    $this->db->insert('users',$array);
-    
+// Add Task
+    public function add($array){
+
+        $query = $this->db->insert('tasks',$array);
+
+        if($this->db->affected_rows() != 1){
+            return false;
+        }else{
+            return  true;
+        }
+
+
     }
 
 
@@ -38,6 +46,7 @@ public function edit($array,$id){
     $this->db->update('tasks',$array);
     
     }
+
 // Delete
 public function delete($id){
     $this->db->where([

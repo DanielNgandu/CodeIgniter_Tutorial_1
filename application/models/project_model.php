@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class project_model extends CI_Model{
+class Project_model extends CI_Model{
 
 
 // Read
@@ -12,13 +12,25 @@ class project_model extends CI_Model{
         return $query->result();
     }
 
-    //get project tasks
-    // Read
-    // public function get_project_tasks($id){
-    //     //easier way using autoload
+// Add Project
+    public function add($array){
 
-    //     $query = $this->db->get('projects');
-    //     return $query->result();
-    // }
+        $query = $this->db->insert('projects',$array);
 
+        if($this->db->affected_rows() != 1){
+            return false;
+        }else{
+            return  true;
+        }
+
+
+    }
+// Delete
+    public function delete($id){
+        $this->db->where([
+            'id' => $id,
+        ]);
+        $this->db->delete('projects');
+
+    }
 }

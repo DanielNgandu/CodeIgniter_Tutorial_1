@@ -63,6 +63,16 @@ public function edit($id)
 
 }
 
+
+
+    public function add($id)
+    {
+        $data['projects'] = $this->task_model->add($id);
+        $data['main_view'] = "tasks/add";
+        $this->load->view('layouts/main',$data);
+
+    }
+
 public function delete($id)
 {
     $this->task_model->delete($id);
