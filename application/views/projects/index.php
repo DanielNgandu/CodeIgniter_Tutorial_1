@@ -52,7 +52,12 @@ if($this->session->flashdata('no_access')):
          echo "<td>".$projects->project_body."</td>";
          echo "<td>".$projects->date_created."</td>";
      ?>
-              <td><a href ='<?= site_url();?>task_controller/tasks/<?php echo $projects->id; ?>'><button class='btn btn-sm btn-success'>View</button></a>| <button type="button" class= "btn btn-sm btn-info"  onClick='editProjectModal(<?php echo $projects->id.",".$projects->project_name.",".$projects->project_body.",".$projects->date_created;?>)'>Edit</button>| <a href ="<?= site_url();?>project_controller/delete/<?php echo $projects->id; ?>" class= "btn btn-sm btn-danger">Delete</a></td>
+              <td><a href ='<?= site_url();?>task_controller/tasks/<?php echo $projects->id; ?>'>
+                      <button class='btn btn-sm btn-success'>View</button></a>|
+
+                  <?php echo '<button type="button"  class= \'btn btn-sm btn-info\'  onclick="editProjectModal(\'' . $projects->id . '\',\'' . $projects->project_name . '\',\'' . $projects->project_body .'\',\''  .$projects->date_created .'\')" >
+                  Edit</button>';?>
+                  | <a href ="<?= site_url();?>project_controller/delete/<?php echo $projects->id; ?>" class= "btn btn-sm btn-danger">Delete</a></td>
 
 
      <?php

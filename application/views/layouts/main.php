@@ -51,14 +51,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="form-group">
                 <?php
                 echo form_label('Project ID: ');
-                $data_username = array(
+                $data_id = array(
                     'type' => 'text',
                     'class' => 'form-control',
                     'name' => 'p_id',
                     'id' => 'p_id',
                     'placeholder' => ''
                 );
-                echo form_input($data_username); ?>
+                echo form_input($data_id); ?>
             </div>
             <div class="form-group">
                 <?php
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'class' => 'form-control',
                     'name' => 'p_name',
                     'id' => 'p_name',
-                    'placeholder' => 'Please Enter Project Name'
+                    'placeholder' => ''
                 );
                 echo form_input($data_username); ?>
             </div>
@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'class' => 'form-control',
                     'name' => 'p_desc',
                     'id' => 'p_desc',
-                    'placeholder' => 'Please Enter Description'
+                    'placeholder' => ''
                 );
                 echo form_input($data_email); ?>
             </div>
@@ -94,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'class' => 'form-control',
                     'name' => 'date',
                     'id' => 'date',
-                    'placeholder' => 'Please Enter Date'
+                    'placeholder' => ''
                 );
                 echo form_input($data_fname); ?>
             </div>
@@ -149,8 +149,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      document.getElementById("p_name").value = project_name;
      document.getElementById("p_desc").value = project_body;
      document.getElementById("date").value = date_created;
-     alert(project_id);
-     // $("#editProjectModal").modal();
+     // alert(project_id);
+     $("#editProjectModal").modal();
 }
 </script>
 </html>
