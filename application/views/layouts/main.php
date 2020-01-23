@@ -269,7 +269,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
             endif;
-            echo form_open('task_controller/add',$attributes);?>
+            echo form_open('project_controller/edit',$attributes);?>
             <div class="form-group">
                 <?php
                 echo form_label('Project ID: ');
@@ -278,7 +278,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'class' => 'form-control',
                     'name' => 'p_id',
                     'id' => 'p_id',
-                    'placeholder' => ''
+                    'value' => '',
+                    'placeholder' => 'ID',
+                    'readonly' => 'readonly'
+
                 );
                 echo form_input($data_id); ?>
             </div>
@@ -290,7 +293,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'class' => 'form-control',
                     'name' => 'p_name',
                     'id' => 'p_name',
-                    'placeholder' => ''
+                    'value' => '',
+                    'placeholder' => 'Name'
+
+
                 );
                 echo form_input($data_username); ?>
             </div>
@@ -303,7 +309,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'class' => 'form-control',
                     'name' => 'p_desc',
                     'id' => 'p_desc',
-                    'placeholder' => ''
+                    'value' => '',
+                    'placeholder' => 'Description'
+
                 );
                 echo form_input($data_email); ?>
             </div>
@@ -316,7 +324,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'class' => 'form-control',
                     'name' => 'date',
                     'id' => 'date',
-                    'placeholder' => ''
+                    'value' => '',
+                    'placeholder' => 'Date'
                 );
                 echo form_input($data_fname); ?>
             </div>

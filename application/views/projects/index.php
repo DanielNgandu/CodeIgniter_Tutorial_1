@@ -53,7 +53,7 @@ if($this->session->flashdata('no_access')):
          echo "<td>".$projects->date_created."</td>";
      ?>
               <td><a href ='<?= site_url();?>task_controller/tasks/<?php echo $projects->id; ?>'>
-                      <button class='btn btn-sm btn-success'>View</button></a>|
+                      <button class='btn btn-sm btn-success'>View Tasks</button></a>|
 
                   <?php echo '<button type="button"  class= \'btn btn-sm btn-info\'  onclick="editProjectModal(\'' . $projects->id . '\',\'' . $projects->project_name . '\',\'' . $projects->project_body .'\',\''  .$projects->date_created .'\')" >
                   Edit</button>';?>

@@ -12,16 +12,6 @@ public function __construct()
  if($this->session->userdata('logged_in')){
     $this->session->set_flashdata('access','Awesome! Welcome.');
 
-// //view home page
-// 	$data['main_view'] = "projects/index";
-//     $this->load->view('layouts/main',$data);
-//     exit;
-
-
-//  }else{
-//     $this->session->set_flashdata('no_access','Sorry, you are allowed beyond this. Try again.');
-//     redirect('User_Controller/login');
-//     exit;
 
 }
 
@@ -86,7 +76,25 @@ public function index()
         }
 
     }
+    public function edit()
+    {
+        $p_id = $this->input->post('p_id');
+        $p_name = $this->input->post('p_name');
+        $p_desc = $this->input->post('p_desc');
+        $date = $this->input->post('date');
 
+//set up array
+//Setting values for tabel columns
+        $dataArray = array(
+            'project_name' => $p_name,
+            'project_body' => $p_desc,
+            'date_created' => $date
+        );
+        $this->project_model->edit($p_id,$dataArray);
+        $data['main_view'] = "projects/index";
+        $this->load->view('layouts/main',$data);
+
+    }
     public function delete($id)
     {
         $this->project_model->delete($id);
@@ -94,4 +102,6 @@ public function index()
         $this->load->view('layouts/main',$data);
 
     }
+
+
 }

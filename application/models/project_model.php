@@ -25,6 +25,24 @@ class Project_model extends CI_Model{
 
 
     }
+
+    // Edit Project
+    public function edit($id,$array){
+        $this->db->where([
+            'id' => $id,
+        ]);
+        $query = $this->db->update('projects',$array);
+
+        if($this->db->affected_rows() != 1){
+            return false;
+        }else{
+            return  true;
+        }
+
+
+    }
+
+
 // Delete
     public function delete($id){
         $this->db->where([
